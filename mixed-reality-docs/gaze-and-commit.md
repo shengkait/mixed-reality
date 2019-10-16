@@ -112,6 +112,17 @@ Connect external devices such as switches, buttons, mounts, and joysticks to cre
 All interactions are built upon the ability of a user to target the element they want to interact with, regardless of the input modality. In Windows Mixed Reality, this is generally done using the user's gaze.
 To enable a user to work with an experience successfully, the system's calculated understanding of a user's intent and the user's actual intent must align as closely as possible. To the degree that the system interprets the user's intended actions correctly, satisfaction increases and performance improves.
 
+* Your app can intersect head-gaze with the holograms in your scene to determine where the user's attention is.
+* Your app can target gestures and controller presses based on the user's head-gaze, letting the user select, activate, grab, scroll, or otherwise interact with their holograms.
+* Your app can let the user place holograms on real-world surfaces, by intersecting their head-gaze ray with the spatial mapping mesh.
+* Your app can know when the user is *not* looking in the direction of an important object, which can lead your app to give visual and audio cues to turn towards that object.
+
+## Cursor
+For head gaze, most apps should use a [cursor](cursors.md) (or other auditory/visual indication) to give the user confidence in what they're about to interact with. 
+You typically position this cursor in the world where their head gaze ray first intersects an object, which may be a hologram or a real-world surface.
+
+![An example visual cursor to show gaze](images/cursor.jpg)<br>
+*An example visual cursor to show gaze*
 
 ## Target sizing and feedback
 The gaze vector has been shown repeatedly to be usable for fine targeting, but often works best for gross targeting--acquiring somewhat larger targets. Minimum target sizes of 1 to 1.5 degrees allows successful user actions in most scenarios, though targets of 3 degrees often allow for greater speed. Note that the size that the user targets is effectively a 2D area even for 3D elements--whichever projection is facing them should be the targetable area. Providing some salient cue that an element is "active" (that the user is targeting it) is extremely helpful. This can include treatments like visible "hover" effects, audio highlights or clicks, or clear alignment of a cursor with an element.
